@@ -4,7 +4,7 @@ const date = new Date()
 const dateString = date.toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
 
 async function setupCounter () {
-  const response = await fetch('/.netlify/functions/counter.json')
+  const response = await fetch('/.netlify/functions/counter')
   const counter = await response.json()
   document.querySelector('#counter').innerHTML = `Today, ${dateString}, there are ${counter.visiblePixels} visible pixels out of 20000`
 }
