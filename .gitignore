@@ -29,3 +29,6 @@ backups/*
 !backups/README.md
 picture.png
 counter.json
+
+# Local Netlify folder
+.netlify
