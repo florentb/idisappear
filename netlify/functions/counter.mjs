@@ -5,3 +5,7 @@ export default async (req, context) => {
   const counter = await store.get('counter', { type: 'json' })
   return new Response(counter)
 }
+
+export const config = {
+  path: '/api/counter'
+}
