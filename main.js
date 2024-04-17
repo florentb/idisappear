@@ -10,7 +10,7 @@ async function setupCounter () {
 }
 
 async function setupPicture () {
-  const response = await fetch('/.netlify/functions/getPicture')
+  const response = await fetch('/.netlify/functions/picture')
   const blob = await response.blob()
   const objectURL = URL.createObjectURL(blob)
   document.querySelector('#picture').src = objectURL
