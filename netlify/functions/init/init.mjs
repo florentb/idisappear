@@ -26,7 +26,7 @@ export default async (req, context) => {
 
   // Save to Netlify Blob
   await store.setJSON('matrix', JSON.stringify(visibilityMatrix))
-  await store.setJSON('counter', JSON.stringify(JSON.stringify(pixelCounter)))
+  await store.setJSON('counter', JSON.stringify(pixelCounter))
 
   PImage.decodePNGFromStream(createReadStream(pictureFile)).then(image => {
     const canvas = PImage.make(width, height)
