@@ -9,4 +9,12 @@ async function setupCounter () {
   document.querySelector('#counter').innerHTML = `Today, ${dateString}, there are ${counter.visiblePixels} visible pixels out of 20000`
 }
 
+async function setupPicture () {
+  const response = await fetch('/.netlify/functions/getPicture')
+  const blob = await response.blob()
+  const objectURL = URL.createObjectURL(blob)
+  document.querySelector('#picture').src = objectURL
+}
+
 setupCounter()
+setupPicture()
