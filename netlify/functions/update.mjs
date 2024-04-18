@@ -76,19 +76,19 @@ export default async (req, context) => {
 
     // Save the pixelated image
     const pictureStream = new BlobWriteStream(saveImage, { mimeType: 'image/png' })
-    PImage.encodePNGToStream(largeCanvas, pictureStream)
+    return PImage.encodePNGToStream(largeCanvas, pictureStream)
   }
 
   // Save picture to Netlify Blob
-  function saveImage (blob) {
+  async function saveImage (blob) {
     const timestamp = new Date().toISOString().replace(/[:.-]/g, '')
-    store.set(`backup_${timestamp}`, blob)
-    store.set('picture', blob)
+    await store.set(`backup_${timestamp}`, blob)
+    await store.set('picture', blob)
   }
 
   // Run the full update and processing
   if (hideRandomVisiblePixel()) {
-    processImage(pictureFile)
+    await processImage(pictureFile)
     return new Response('Updated')
   } else {
     return new Response('Processing terminated: Is Boris still alive?')
