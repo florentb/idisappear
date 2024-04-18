@@ -1,6 +1,6 @@
 import * as PImage from 'pureimage'
 import { createReadStream } from 'fs'
-import { Writable } from 'stream'
+import { BlobWriteStream } from 'fast-blob-stream'
 import { getStore } from '@netlify/blobs'
 
 export default async (req, context) => {
@@ -28,33 +28,24 @@ export default async (req, context) => {
   await store.setJSON('matrix', JSON.stringify(visibilityMatrix))
   await store.setJSON('counter', JSON.stringify(pixelCounter))
 
-  PImage.decodePNGFromStream(createReadStream(pictureFile)).then(image => {
-    const canvas = PImage.make(width, height)
-    const ctx = canvas.getContext('2d')
-    ctx.drawImage(image, 0, 0, width, height)
+  // Get image canvas
+  const image = await PImage.decodePNGFromStream(createReadStream(pictureFile))
+  const canvas = PImage.make(width, height)
+  const ctx = canvas.getContext('2d')
+  ctx.drawImage(image, 0, 0, width, height)
 
-    // Create a pixelated version
-    const largeCanvas = PImage.make(width * 5, height * 5)
-    const largeCtx = largeCanvas.getContext('2d')
-    largeCtx.imageSmoothingEnabled = false
-    largeCtx.scale(5, 5)
-    largeCtx.drawImage(canvas, 0, 0)
+  // Create a pixelated version
+  const largeCanvas = PImage.make(width * 5, height * 5)
+  const largeCtx = largeCanvas.getContext('2d')
+  largeCtx.imageSmoothingEnabled = false
+  largeCtx.scale(5, 5)
+  largeCtx.drawImage(canvas, 0, 0)
 
-    // Save the pixelated image
-    const outStream = new Writable()
-    const chunks = []
-    outStream._write = function (chunk, encoding, callback) {
-      if (!(chunk instanceof Uint8Array)) {
-        chunk = new Uint8Array(chunk)
-      }
-      chunks.push(chunk)
-      callback()
-    }
-    outStream.on('finish', function () {
-      const blob = new Blob(chunks, { type: 'image/png' })
-      store.set('picture', blob)
-    })
-    PImage.encodePNGToStream(largeCanvas, outStream)
+  // Save the pixelated image
+  const outStream = new BlobWriteStream(console.log, { mimeType: 'image/png' })
+  PImage.encodePNGToStream(largeCanvas, outStream)
+  outStream.on('blob', (blob) => {
+    store.set('picture', blob)
   })
 
   return new Response('Init done')
