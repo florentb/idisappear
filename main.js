@@ -1,19 +1,28 @@
 import './style.css'
 
+const counterEl = document.querySelector('#counter')
+const pictureEl = document.querySelector('#picture')
+
 const date = new Date()
 const dateString = date.toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
 
 async function setupCounter () {
   const response = await fetch('/api/counter')
   const counter = await response.json()
-  document.querySelector('#counter').innerHTML = `Today, ${dateString}, there are ${counter.visiblePixels} visible pixels out of 20000`
+  counterEl.innerHTML = `
+    <span class="s1">Today is ${dateString}.</span>
+    <span class="s2">There are ${counter.visiblePixels} visible pixels out of 20000.</span>
+    <span class="s3">${counter.visiblePixels} is the number of days I have left to live.</span>
+  `
+  pictureEl.alt = `${counter.visiblePixels} visible pixels out of 20000`
 }
 
 async function setupPicture () {
   const response = await fetch('/api/picture')
   const blob = await response.blob()
   const objectURL = URL.createObjectURL(blob)
-  document.querySelector('#picture').src = objectURL
+  pictureEl.src = objectURL
+  pictureEl.classList.add('done')
 }
 
 setupCounter()
