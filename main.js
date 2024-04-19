@@ -2,6 +2,10 @@ import './style.css'
 
 const counterEl = document.querySelector('#counter')
 const pictureEl = document.querySelector('#picture')
+const aboutLinkEl = document.querySelector('#about-link a')
+const aboutEl = document.querySelector('#about')
+const aboutContentEl = document.querySelector('#about .content')
+const aboutCloseBtnEl = document.querySelector('#about-close-btn')
 
 const date = new Date()
 const dateString = date.toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
@@ -26,5 +30,23 @@ async function setupPicture () {
   pictureEl.onload = () => pictureEl.classList.add('done')
 }
 
+async function displayAbout (e) {
+  e.preventDefault()
+  const response = await fetch('about.html')
+  const about = await response.text()
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(about, 'text/html')
+  aboutContentEl.replaceChildren()
+  aboutContentEl.appendChild(doc.body.firstElementChild)
+  aboutEl.classList.add('shown')
+}
+
+function closeAbout (e) {
+  e.preventDefault()
+  aboutEl.classList.remove('shown')
+}
+
 setupCounter()
 setupPicture()
+aboutLinkEl.addEventListener('click', displayAbout)
+aboutCloseBtnEl.addEventListener('click', closeAbout)

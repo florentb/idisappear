@@ -3,7 +3,7 @@
   --font-color: rgba(255, 255, 255, 0.87);
   --bg-color: #242424;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: monospace;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -16,7 +16,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, html {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
@@ -26,11 +30,11 @@ body {
   place-items: center;
   min-width: 320px;
   height: 100dvh;
+  line-height: 1.5;
 }
 
 a {
-  font-weight: 500;
-  color: var(--primary-color);
+  color: var(--font-color);
   text-decoration: underline;
 }
 a:hover {
@@ -63,11 +67,9 @@ a:hover {
 
 .footer {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 1em;
-}
-
-.typewriter {
-  font-family: monospace;
 }
 
 .typewriter h1 {
@@ -98,6 +100,55 @@ a:hover {
   animation-delay: 6s;
 }
 
+#about-link {
+  text-align: left;
+  margin-top: 1em;
+}
+
+#about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: none;
+  place-items: center;
+}
+
+#about.shown {
+  display: flex;
+}
+
+#about .content {
+  margin: auto;
+  max-width: 700px;
+  padding: 2em;
+}
+
+#about article p {
+  margin: 1em 0;
+}
+
+#about article hr {
+  margin: 2em 0;
+  height: 1px;
+  color: var(--font-color);
+}
+
+#about-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.65em 0.9em;
+  margin: 2em;
+  border: 1px solid var(--font-color);
+  border-radius: 100%;
+  background-color: var(--bg-color);
+  font-size: large;
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --font-color: #213547;
@@ -110,6 +161,13 @@ a:hover {
     color: var(--font-color);
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    flex-flow: row;
+  }
+}
+
 
 /* The typing effect */
 @keyframes typing {
