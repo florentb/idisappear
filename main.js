@@ -23,7 +23,7 @@ async function setupPicture () {
   const blob = await response.blob()
   const objectURL = URL.createObjectURL(blob)
   pictureEl.src = objectURL
-  pictureEl.classList.add('done')
+  pictureEl.onload = () => pictureEl.classList.add('done')
 }
 
 setupCounter()
