@@ -28,22 +28,16 @@ export default async (req, context) => {
   await store.setJSON('matrix', JSON.stringify(visibilityMatrix))
   await store.setJSON('counter', JSON.stringify(pixelCounter))
 
-  // Get image canvas
+  // Get pixalated image canvas
   const image = await PImage.decodePNGFromStream(createReadStream(pictureFile))
-  const canvas = PImage.make(width, height)
+  const canvas = PImage.make(width * 5, height * 5)
   const ctx = canvas.getContext('2d')
-  ctx.drawImage(image, 0, 0, width, height)
-
-  // Create a pixelated version
-  const largeCanvas = PImage.make(width * 5, height * 5)
-  const largeCtx = largeCanvas.getContext('2d')
-  largeCtx.imageSmoothingEnabled = false
-  largeCtx.scale(5, 5)
-  largeCtx.drawImage(canvas, 0, 0)
+  ctx.imageSmoothingEnabled = false
+  ctx.drawImage(image, 0, 0, width * 5, height * 5)
 
   // Save the pixelated image
   const outStream = new BlobWriteStream(console.log, { mimeType: 'image/png' })
-  PImage.encodePNGToStream(largeCanvas, outStream)
+  PImage.encodePNGToStream(canvas, outStream)
   outStream.on('blob', (blob) => {
     store.set('picture', blob)
   })

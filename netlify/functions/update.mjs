@@ -71,8 +71,7 @@ export default async (req, context) => {
     const largeCanvas = PImage.make(width * 5, height * 5)
     const largeCtx = largeCanvas.getContext('2d')
     largeCtx.imageSmoothingEnabled = false
-    largeCtx.scale(5, 5)
-    largeCtx.drawImage(canvas, 0, 0)
+    largeCtx.drawImage(canvas, 0, 0, width * 5, height * 5)
 
     // Save the pixelated image
     const pictureStream = new BlobWriteStream(saveImage, { mimeType: 'image/png' })
