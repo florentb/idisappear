@@ -163,8 +163,15 @@ a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+  .typewriter h1 {
+    font-size: medium;
+  }
   .footer {
     flex-flow: row;
+  }
+  #about-link {
+    text-align: left;
+    margin-top: 0;
   }
 }
 
