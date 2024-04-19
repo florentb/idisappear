@@ -12,7 +12,8 @@ async function setupCounter () {
   counterEl.innerHTML = `
     <span class="s1">Today is ${dateString}.</span>
     <span class="s2">There are ${counter.visiblePixels} visible pixels out of 20000.</span>
-    <span class="s3">${counter.visiblePixels} is the number of days I have left to live.</span>
+    <span class="s3">${counter.visiblePixels} is the number of days</span>
+    <span class="s4">I have left to live.</span>
   `
   pictureEl.alt = `${counter.visiblePixels} visible pixels out of 20000`
 }
