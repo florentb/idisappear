@@ -22,7 +22,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "globals": "^15.0.0",
-    "netlify-cli": "^17.22.1",
+    "netlify-cli": "^17.23.1",
     "vite": "^5.2.0"
   },
   "dependencies": {
