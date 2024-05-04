@@ -26,6 +26,7 @@ dist-ssr
 # App
 picture.png
 utils
+.env
 
 # Local Netlify folder
 .netlify
