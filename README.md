@@ -12,11 +12,11 @@
 
 **[www.idisappear.net](http://www.idisappear.net/)**
 
-**conception - réalisation** — Boris du Boullay [lesfilmsminute.com](https://lesfilmsminute.com)
+**design - production** — Boris du Boullay [lesfilmsminute.com](https://lesfilmsminute.com)
 
-**programmation - réalisation** — Florent Bourgeois
+**programming - production** — Florent Bourgeois
 
-**photographie** — Fabien Lainé
+**photography** — Fabien Lainé
 
 © Boris du Boullay
 
