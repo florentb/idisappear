@@ -24,11 +24,8 @@ dist-ssr
 *.sw?
 
 # App
-matrix.json
-backups/*
-!backups/README.md
 picture.png
-counter.json
+utils
 
 # Local Netlify folder
 .netlify
