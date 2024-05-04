@@ -1,4 +1,4 @@
-# i disappear
+# I disappear
 
 > This photograph contains 20,000 pixels.
 >
