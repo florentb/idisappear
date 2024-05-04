@@ -1,12 +1,30 @@
-# I DISAPPEAR
+# i disappear
 
-"I DISAPPEAR" is a photograph that captures Boris's face with 20,000 pixels. The photo was taken in Paris on November 11, 2003. The number 20,000 represents roughly the number of days Boris has left to live. If Boris lives to 88, which is 20,000 days from the photo's date, he will be nearing the end of his life.
+> This photograph contains 20,000 pixels.
+>
+> Since September 22nd, 2004, each day, a pixel of this photo is replaced by a white pixel.
+>
+> In 20,000 days, the 20,000 pixels of this photo will be white, and my face will have disappeared completely.
+>
+> 20,000 days, that means 54 years.
+>
+> In 54 years, I will be close to death.
 
-This photo is now available under the name [idisappear.net](http://www.idisappear.net/), and we have programmed a daily random replacement of a pixel in the photograph with a white one.
+© Boris du Boullay
 
-In 20,000 days, his face will have 20,000 white pixels, and on that day, it will have disappeared.
+---
 
 **[www.idisappear.net](http://www.idisappear.net/)**
+
+**conception - réalisation**
+Boris du Boullay
+lesfilmsminute.com
+
+**programmation - réalisation**
+Florent Bourgeois
+
+**photographie**
+Fabien Lainé
 
 ## Development
 
