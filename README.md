@@ -24,7 +24,7 @@
 
 ## Development
 
-This project is hosted at [Netlify](https://www.netlify.com/) and uses [Blobs](https://docs.netlify.com/blobs/overview/) and [Functions](https://docs.netlify.com/functions/overview/) features.
+This project is hosted at [Netlify](https://www.netlify.com/) and uses [Blobs](https://docs.netlify.com/blobs/overview/), [Functions](https://docs.netlify.com/functions/overview/), and [Edge Functions](https://docs.netlify.com/edge-functions/overview/) features.
 
 To launch the project locally:
 
