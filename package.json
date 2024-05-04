@@ -7,7 +7,9 @@
     "netlify": "netlify",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "init": "netlify functions:invoke init",
+    "update": "netlify functions:invoke update"
   },
   "keywords": [],
   "author": "",
