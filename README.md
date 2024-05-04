@@ -10,21 +10,15 @@
 >
 > In 54 years, I will be close to death.
 
-© Boris du Boullay
-
----
-
 **[www.idisappear.net](http://www.idisappear.net/)**
 
-**conception - réalisation**
-Boris du Boullay
-lesfilmsminute.com
+**conception - réalisation** — Boris du Boullay [lesfilmsminute.com](https://lesfilmsminute.com)
 
-**programmation - réalisation**
-Florent Bourgeois
+**programmation - réalisation** — Florent Bourgeois
 
-**photographie**
-Fabien Lainé
+**photographie** — Fabien Lainé
+
+© Boris du Boullay
 
 ## Development
 
