@@ -3,4 +3,4 @@ node_bundler = "esbuild"
 included_files = ["boris.png"]
 
 [functions."update"]
-schedule = "@hourly"
+schedule = "@daily"
