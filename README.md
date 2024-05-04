@@ -16,13 +16,11 @@
 
 ## Credits
 
-**design - production** — Boris du Boullay [lesfilmsminute.com](https://lesfilmsminute.com)
+**design - production** — Boris du Boullay
 
 **programming - production** — Florent Bourgeois
 
 **photography** — Fabien Lainé
-
-© Boris du Boullay
 
 ## Development
 
