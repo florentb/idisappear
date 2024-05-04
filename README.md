@@ -1,5 +1,7 @@
 # I disappear
 
+![Boris, Sat, 6 Nov 2004](./public/boris-20041106.png?raw=true "I disappear")
+
 > This photograph contains 20,000 pixels.
 >
 > Since September 22nd, 2004, each day, a pixel of this photo is replaced by a white pixel.
@@ -11,6 +13,8 @@
 > In 54 years, I will be close to death.
 
 **[www.idisappear.net](http://www.idisappear.net/)**
+
+## Credits
 
 **design - production** — Boris du Boullay [lesfilmsminute.com](https://lesfilmsminute.com)
 
