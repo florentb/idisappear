@@ -12,7 +12,7 @@
 >
 > In 54 years, I will be close to death.
 
-**[www.idisappear.net](http://www.idisappear.net/)**
+**[www.idisappear.net](https://idisappear.net/)**
 
 ## Credits
 
