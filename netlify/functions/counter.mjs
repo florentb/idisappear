@@ -1,11 +1,11 @@
-import { getStore } from '@netlify/blobs'
+import { getStore } from "@netlify/blobs";
 
-export default async (req, context) => {
-  const store = getStore('idisappear')
-  const counter = await store.get('counter', { type: 'json' })
-  return new Response(counter)
-}
+export default async () => {
+  const store = getStore("idisappear");
+  const counter = await store.get("counter", { type: "json" });
+  return new Response(counter);
+};
 
 export const config = {
-  path: '/api/counter'
-}
+  path: "/api/counter",
+};

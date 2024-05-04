@@ -6,28 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "create-matrix": "node bin/createMatrix.js",
-    "process-image": "node bin/processImage.js"
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.0.2",
-    "@eslint/js": "^9.0.0",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "globals": "^15.0.0",
-    "netlify-cli": "^17.22.1",
-    "vite": "^5.2.0"
+    "@eslint/js": "^9.2.0",
+    "eslint": "^9.2.0",
+    "globals": "^15.1.0",
+    "netlify-cli": "^17.23.1",
+    "vite": "^5.2.11"
   },
   "dependencies": {
     "@netlify/blobs": "^7.3.0",
-    "@netlify/functions": "^2.6.0",
+    "@netlify/functions": "^2.6.3",
     "fast-blob-stream": "^1.1.1",
     "pureimage": "^0.4.13"
   }
