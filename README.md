@@ -16,5 +16,6 @@ To launch the project locally:
 
 ```sh
 npm install
+npm run init
 npm run netlify dev
 ```
