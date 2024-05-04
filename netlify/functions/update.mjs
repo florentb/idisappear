@@ -38,6 +38,7 @@ export default async () => {
         // Update and save the visible pixel counter
         pixelCounter.visiblePixels--;
         await store.setJSON("counter", JSON.stringify(pixelCounter));
+        console.log(`${attempts} attemps to find a pixel to hide.`);
         return true; // Exit after hiding one pixel
       }
       attempts++;
