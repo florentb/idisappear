@@ -31,8 +31,8 @@ export default async (req) => {
     };
 
     // Save to Netlify Blob
-    await store.setJSON("matrix", JSON.stringify(visibilityMatrix));
-    await store.setJSON("counter", JSON.stringify(pixelCounter));
+    await store.setJSON("matrix", visibilityMatrix);
+    await store.setJSON("counter", pixelCounter);
 
     // Get pixalated image canvas
     const image = await PImage.decodePNGFromStream(
