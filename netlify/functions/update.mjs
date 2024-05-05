@@ -87,7 +87,12 @@ export default async () => {
 
   // Save picture to Netlify Blob
   async function saveImage(blob) {
-    await store.set(`backup_${pixels - pixelCounter.visiblePixels}`, blob);
+    const metadata = {
+      date: new Date().toISOString(),
+    };
+    await store.set(`backup_${pixels - pixelCounter.visiblePixels}`, blob, {
+      metadata: metadata,
+    });
     await store.set("picture", blob);
   }
 
