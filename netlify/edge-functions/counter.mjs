@@ -3,7 +3,7 @@ import { getStore } from "@netlify/blobs";
 
 export default async (req) => {
   const store = getStore("idisappear");
-  const counter = await store.get("counter", { type: "json" });
+  const counter = await store.get("counter");
   const etag = `"${crypto.createHash("md5").update(counter).digest("hex")}"`;
 
   const headers = {
