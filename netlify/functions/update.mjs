@@ -8,8 +8,8 @@ const pictureFile = "./boris.png";
 const width = 160;
 const height = 125;
 const store = getStore("idisappear");
+const pixelCounter = {};
 let visibilityMatrix = [];
-let pixelCounter = {};
 
 export default async () => {
   try {
@@ -18,9 +18,9 @@ export default async () => {
     visibilityMatrix = JSON.parse(matrixBlob);
 
     // Initialize and load the pixel visibility counter
-    pixelCounter = {
-      visiblePixels: visibilityMatrix.flat().filter((x) => x === 1).length,
-    };
+    pixelCounter.visiblePixels = visibilityMatrix
+      .flat()
+      .filter((x) => x === 1).length;
 
     if (await hideRandomVisiblePixel()) {
       await processImage();
