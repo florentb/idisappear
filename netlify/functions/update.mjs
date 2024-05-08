@@ -7,12 +7,12 @@ import { getStore } from "@netlify/blobs";
 const pictureFile = "./boris.png";
 const width = 160;
 const height = 125;
-const store = getStore("idisappear");
 const pixelCounter = {};
 let visibilityMatrix = [];
 
 export default async () => {
   try {
+    const store = getStore("idisappear");
     // Load the visibility matrix from Netlify Blob
     const matrixBlob = await store.get("matrix");
     visibilityMatrix = JSON.parse(matrixBlob);
@@ -36,6 +36,7 @@ export default async () => {
 
 // Function to hide a random visible pixel
 async function hideRandomVisiblePixel() {
+  const store = getStore("idisappear");
   const coordinates = [];
 
   for (let y = 0; y < height; y++) {
@@ -99,6 +100,7 @@ async function processImage() {
 
 // Save picture to Netlify Blob
 async function saveImage(blob) {
+  const store = getStore("idisappear");
   const metadata = { date: new Date().toISOString() };
   await store.set(
     `backup_${width * height - pixelCounter.visiblePixels}`,
