@@ -12,6 +12,29 @@ export default async () => {
   const pixelCounter = {};
   let visibilityMatrix = [];
 
+  try {
+    console.log("Update Start");
+    // Load the visibility matrix from Netlify Blob
+    const matrixBlob = await store.get("matrix");
+    visibilityMatrix = JSON.parse(matrixBlob);
+    console.log(visibilityMatrix);
+
+    // Initialize and load the pixel visibility counter
+    pixelCounter.visiblePixels = visibilityMatrix
+      .flat()
+      .filter((x) => x === 1).length;
+
+    if (await hideRandomVisiblePixel()) {
+      await processImage();
+      return new Response("Updated");
+    } else {
+      return new Response("Processing terminated: No visible pixels left.");
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return new Response("Error processing the image", { status: 500 });
+  }
+
   // Function to hide a random visible pixel
   async function hideRandomVisiblePixel() {
     console.log("Hide Random Visible Pixel");
@@ -90,27 +113,5 @@ export default async () => {
       { metadata: metadata }
     );
     await store.set("picture", blob);
-  }
-
-  try {
-    console.log("Update Start");
-    // Load the visibility matrix from Netlify Blob
-    const matrixBlob = await store.get("matrix");
-    visibilityMatrix = JSON.parse(matrixBlob);
-
-    // Initialize and load the pixel visibility counter
-    pixelCounter.visiblePixels = visibilityMatrix
-      .flat()
-      .filter((x) => x === 1).length;
-
-    if (await hideRandomVisiblePixel()) {
-      await processImage();
-      return new Response("Updated");
-    } else {
-      return new Response("Processing terminated: No visible pixels left.");
-    }
-  } catch (error) {
-    console.error("An error occurred:", error);
-    return new Response("Error processing the image", { status: 500 });
   }
 };
