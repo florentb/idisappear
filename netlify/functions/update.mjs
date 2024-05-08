@@ -15,7 +15,7 @@ export default async () => {
   try {
     console.log("Update Start");
     // Load the visibility matrix from Netlify Blob
-    const matrixBlob = await store.get("matrix");
+    const matrixBlob = await store.get("matrix", { type: "json" });
     visibilityMatrix = JSON.parse(matrixBlob);
     console.log(visibilityMatrix.flat());
 
