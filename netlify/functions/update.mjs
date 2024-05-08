@@ -17,7 +17,6 @@ export default async () => {
     // Load the visibility matrix from Netlify Blob
     const matrixBlob = await store.get("matrix");
     visibilityMatrix = JSON.parse(matrixBlob);
-    console.log(visibilityMatrix.flat());
 
     // Initialize and load the pixel visibility counter
     pixelCounter.visiblePixels = visibilityMatrix
