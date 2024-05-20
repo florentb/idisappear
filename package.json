@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@netlify/blobs": "^7.3.0",
-    "@netlify/functions": "^2.6.3",
+    "@netlify/functions": "^2.7.0",
     "fast-blob-stream": "^1.1.1",
     "pureimage": "^0.4.13"
   }
