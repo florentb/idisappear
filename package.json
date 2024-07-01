@@ -19,7 +19,7 @@
     "eslint": "^9.2.0",
     "globals": "^15.3.0",
     "netlify-cli": "^17.23.5",
-    "vite": "^5.2.11"
+    "vite": "^5.3.2"
   },
   "dependencies": {
     "@netlify/blobs": "^7.3.0",
